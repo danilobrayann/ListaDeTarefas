@@ -1,11 +1,13 @@
-
+import { v4 as uuidv4 } from 'uuid';
 
 function Home (){
 
-const List = [{id:1528789, task: "Comprar pão"}, 
-{id:15287898, task: "Comprar abacate"}, 
-{id:152878988, task: "Comprar livro"}]
+const List = [{id:uuidv4(), task: "Comprar pão"}, 
+{id:uuidv4(), task: "Comprar abacate"}, 
+{id:uuidv4(), task: "Comprar livro"}]
 /*,,*/
+
+console.log(List)
 function IpuntMudou(){
 
 }
