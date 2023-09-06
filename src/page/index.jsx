@@ -1,30 +1,28 @@
+import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
-function Home (){
 
-const List = [{id:uuidv4(), task: "Comprar pão"}, 
-{id:uuidv4(), task: "Comprar abacate"}, 
-{id:uuidv4(), task: "Comprar livro"}]
-/*,,*/
+function Home() {
 
-console.log(List)
-function IpuntMudou(){
+    const [List, setListe] = useState([{ id: uuidv4(), task: "nada" }]);
 
-}
+    function IpuntMudou(event) {
+        setListe([{ id: uuidv4(), task: event.target.value }])
+    }
 
-function CliqueiNoBotao(){
+    function CliqueiNoBotao() {
 
-}
+    }
 
-return(
-    <>
-   <input type="text" onChange={IpuntMudou} placeholder=" o que tenho para fazer .... ?" />
-   <button onAuxClick={CliqueiNoBotao} >Adicionar</button>
-   <ul>
-   {List.map(Intems => (<li key={Intems.id}>{Intems.task}</li> ))}
-   </ul>
-    </>
-)
+    return (
+        <>
+            <input type="text" onChange={IpuntMudou} placeholder=" o que tenho para fazer .... ?" />
+            <button onAuxClick={CliqueiNoBotao} >Adicionar</button>
+            <ul>
+                {List.map(Intems => (<li key={Intems.id}>{Intems.task}</li>))}
+            </ul>
+        </>
+    )
 
 }
 
