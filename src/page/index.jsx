@@ -5,19 +5,20 @@ import { v4 as uuidv4 } from 'uuid';
 function Home() {
 
     const [List, setListe] = useState([{ id: uuidv4(), task: "nada" }]);
+    const [task, setTask] = useState("");
 
     function IpuntMudou(event) {
-        setListe([{ id: uuidv4(), task: event.target.value }])
+        setTask(event.target.value)
     }
 
     function CliqueiNoBotao() {
-
+        setListe([... List, {id: uuidv4(), task }])
     }
 
     return (
         <>
             <input type="text" onChange={IpuntMudou} placeholder=" o que tenho para fazer .... ?" />
-            <button onAuxClick={CliqueiNoBotao} >Adicionar</button>
+            <button onClick={CliqueiNoBotao} >Adicionar</button>
             <ul>
                 {List.map(Intems => (<li key={Intems.id}>{Intems.task}</li>))}
             </ul>
