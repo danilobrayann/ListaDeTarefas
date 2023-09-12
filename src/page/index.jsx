@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
-import { Container, TodoList } from "./styles";
+import { Container, TodoList, Input,Button } from "./styles";
 
 function Home() {
 
@@ -20,8 +20,8 @@ function Home() {
         <>
             <Container>
                 <TodoList>
-                <input type="text" onChange={IpuntMudou} placeholder=" o que tenho para fazer .... ?" />
-                <button onClick={CliqueiNoBotao} >Adicionar</button>
+                <Input type="text" onChange={IpuntMudou} placeholder=" o que tenho para fazer .... ?" />
+                <Button onClick={CliqueiNoBotao} >Adicionar</Button>
                 <ul>
                     {List.map(Intems => (<li key={Intems.id}>{Intems.task}</li>))}
                 </ul>
