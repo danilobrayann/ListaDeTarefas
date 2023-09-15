@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import { FcFullTrash, FcCheckmark } from "react-icons/fc";
-import { Container, TodoList, Input, Button } from "./styles";
+import { Container, TodoList, Input, Button, ListemItem } from "./styles";
 
 function Home() {
 
@@ -23,7 +23,7 @@ function Home() {
                     <Input type="text" onChange={IpuntMudou} placeholder=" o que tenho para fazer .... ?" />
                     <Button onClick={CliqueiNoBotao} >Adicionar</Button>
                     <ul>
-                        {List.map(Intems => (<div> <FcCheckmark /> <li key={Intems.id}>{Intems.task}</li> <FcFullTrash /> </div>))}
+                        {List.map(Intems => (<ListemItem> <FcCheckmark /> <li key={Intems.id}>{Intems.task}</li> <FcFullTrash /> </ListemItem>))}
                     </ul>
                 </TodoList>
             </Container>
