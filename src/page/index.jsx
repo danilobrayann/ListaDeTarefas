@@ -5,7 +5,7 @@ import { Container, TodoList, Input, Button, ListemItem } from "./styles";
 
 function Home() {
 
-    const [List, setListe] = useState([{ id: uuidv4(), task: "nada" }]);
+    const [List, setListe] = useState([{ id: uuidv4(), task: "nada" , finished: true}]);
     const [task, setTask] = useState("");
 
     function IpuntMudou(event) {
@@ -13,7 +13,7 @@ function Home() {
     }
 
     function CliqueiNoBotao() {
-        setListe([...List, { id: uuidv4(), task }])
+        setListe([...List, { id: uuidv4(), task, finished: false }])
     }
 
     return (
@@ -23,7 +23,7 @@ function Home() {
                     <Input type="text" onChange={IpuntMudou} placeholder=" o que tenho para fazer .... ?" />
                     <Button onClick={CliqueiNoBotao} >Adicionar</Button>
                     <ul>
-                        {List.map(Intems => (<ListemItem> <FcCheckmark /> <li key={Intems.id}>{Intems.task}</li> <FcFullTrash /> </ListemItem>))}
+                        {List.map(Intems => (<ListemItem isFinished={Intems.finished}> <FcCheckmark /> <li key={Intems.id}>{Intems.task}</li> <FcFullTrash /> </ListemItem>))}
                     </ul>
                 </TodoList>
             </Container>

@@ -40,7 +40,7 @@ width: 130px;
 `
 
 export const ListemItem = styled.div`
-background: #e4e4e4e4;
+background: ${props => props.isFinished ? '#00FF7F' :'#FF6347'};
 box-shadow: 1px 4px 10px rgba(0,0,0, 0.2);
 border-radius: 5px;
 height: 60px;
