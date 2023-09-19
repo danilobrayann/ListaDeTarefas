@@ -16,6 +16,15 @@ function Home() {
         setListe([...List, { id: uuidv4(), task, finished: false }])
     }
 
+    function FinalizarTarefa(id) {
+        
+        const newList = List.map( item =>(
+            item.id == id ? {... item, finished: !item.finished} : item
+        ))
+
+        setListe(newList)
+    }
+
     return (
         <>
             <Container>
@@ -23,7 +32,12 @@ function Home() {
                     <Input type="text" onChange={IpuntMudou} placeholder=" o que tenho para fazer .... ?" />
                     <Button onClick={CliqueiNoBotao} >Adicionar</Button>
                     <ul>
-                        {List.map(Intems => (<ListemItem isFinished={Intems.finished}> <FcCheckmark /> <li key={Intems.id}>{Intems.task}</li> <FcFullTrash /> </ListemItem>))}
+                        {List.map(Intems => (
+                        <ListemItem isFinished={Intems.finished} key={Intems.id}>
+                            <FcCheckmark onClick={() => FinalizarTarefa(Intems.id)} /> 
+                            <li >{Intems.task}</li> 
+                            <FcFullTrash /> 
+                            </ListemItem>))}
                     </ul>
                 </TodoList>
             </Container>
