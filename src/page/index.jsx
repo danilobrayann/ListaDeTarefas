@@ -25,6 +25,11 @@ function Home() {
         setListe(newList)
     }
 
+    function deletarItem(id) {
+
+        const Newlist = List.filter( Intems => Intems.id !== id)
+        setListe(Newlist)
+    }
     return (
         <>
             <Container>
@@ -36,7 +41,7 @@ function Home() {
                         <ListemItem isFinished={Intems.finished} key={Intems.id}>
                             <FcCheckmark onClick={() => FinalizarTarefa(Intems.id)} /> 
                             <li >{Intems.task}</li> 
-                            <FcFullTrash /> 
+                            <FcFullTrash onClick={() => deletarItem(Intems.id)}/> 
                             </ListemItem>))}
                     </ul>
                 </TodoList>
